@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="base::layout(~{::section})">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+</head>
+<body>
+
+
+	<section>
+		<div class="container">
+		<table class="table" >
+					<thead class="thead-dark">
+						<tr>
+							<th scope="col">ID</th>
+							<th scope="col">FullName</th>
+							<th scope="col">Email</th>
+							<th scope="col">Address</th>
+							<th scope="col">Password</th>
+							<th scope="col">Qualification</th>
+							<th scope="col">Role</th>
+							<th scope="col">
+								Action
+							</th>
+							
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="user:${listDSuser}">
+							<td th:text="${user.id}"></td>
+							<td th:text="${user.fullName}"></td>
+							<td th:text="${user.email}"></td>
+							<td th:text="${user.address}"></td>
+							<td th:text="${user.password}"></td>
+							<td th:text="${user.qualification}"></td>
+							<td th:text="${user.role}"></td>
+						
+							<td>
+								<a>Delete</a>
+								<a>Update</a>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+				</div>	
+	</section>
+
+
+
+</body>
+</html>

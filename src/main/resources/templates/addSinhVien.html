@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="base::layout(~{::section})">
+
+<head>
+	<meta charset="ISO-8859-1">
+	<title>Insert title here</title>
+
+</head>
+
+<body>
+	<section>
+		<div class="container">
+		<hr>
+		<h2>Thêm Sinh Viên</h2>
+
+		<div class="container p-3">
+			<div class="row">
+				<div class="col-md-6 offset-md-3">
+					<div class="card">
+						<div class="card-header text-center fs-4">Add Student</div>
+
+						<!--<th:block th:if="${session.msg}">
+							<p class="text-center fs-4 text-success">[[${session.msg}]]</p>
+							<th:block th:text="${#session.removeAttribute('msg')}"></th:block>
+						</th:block>-->
+
+
+						<div class="card-body">
+							<form action ="#" th:action="@{/sinhvien/saveSinhVien}" th:object="${sinhvien}" method="post">
+								<div class="mb-3">
+									<label>Enter Họ Tên</label> <input type="text" th:field="*{hoTen}"
+										class="form-control">
+								</div>
+								<div class="mb-3">
+									<label>Enter năm sinh</label> <input type="date" th:field="*{namSinh}" class="form-control">
+								</div>
+
+								<div class="mb-3">
+									<label>Enter dân tộc</label> <input type="text" th:field="*{danToc}" class="form-control">
+								</div>
+								<div class="mb-3">
+									<label>Enter mã lớp</label> <input type="text" th:field="*{maLop}"
+										class="form-control">
+								</div>
+								<div class="mb-3">
+									<label>Enter mã sinh viên</label> <input type="text" th:field="*{maSV}"
+										class="form-control">
+								</div>
+							</div>
+								<button class="btn btn-primary col-md-12" type="submit">Add</button>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+
+
+	</section>
+
+
+
+</body>
+
+</html>

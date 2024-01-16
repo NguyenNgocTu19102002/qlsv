@@ -1,0 +1,43 @@
+<!DOCTYPE html >
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="base::layout(~{::section})">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Employee Management System</title>
+</head>
+
+<body>
+	<section>
+	<div class="container">
+		<h1>Hệ Thống</h1>
+		<hr>
+		<h2>Update Sinh Viên</h2>
+
+		<form action="#" th:action="@{/sinhvien/saveSinhVien}" th:object="${sinhvien}" method="post">
+			<div class="mb-3">
+				<label>Nhập Họ Tên</label> <input type="text" th:field="*{hoTen}" class="form-control">
+			</div>
+			<div class="mb-3">
+				<label>Nhập năm sinh</label> <input type="date" th:field="*{namSinh}" class=" form-control">
+			</div>
+
+			<div class="mb-3">
+				<label>Nhập dân tộc</label> <input type="text" th:field="*{danToc}" class=" form-control">
+			</div>
+			<div class="mb-3">
+				<label>Nhập mã lớp</label> <input type="text" th:field="*{maLop}"
+										class=" form-control">
+			</div>
+			<div class="mb-3">
+				<label>Nhập mã sinh viên</label> <input type="text" th:field="*{maSV}"
+										class=" form-control">
+			</div>
+			<button class="btn btn-primary col-md-12" type="submit">Save</button>
+		</form>
+		</section>
+
+
+</body>
+
+</html>
