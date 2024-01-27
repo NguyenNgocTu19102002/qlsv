@@ -15,12 +15,14 @@
 		<h2>Update Sinh Viên</h2>
 
 		<form action="#" th:action="@{/sinhvien/saveSinhVien}" th:object="${sinhvien}" method="post">
+		
+			<input  type="text" th:field="*{id}" style="display: none;">
 			<div class="mb-3">
 				<label>Nhập Họ Tên</label> <input type="text" th:field="*{hoTen}" class="form-control">
 			</div>
 			<div class="mb-3">
 				<label>Nhập năm sinh</label> <input type="date" th:field="*{namSinh}" class=" form-control">
-			</div>
+				</div>
 
 			<div class="mb-3">
 				<label>Nhập dân tộc</label> <input type="text" th:field="*{danToc}" class=" form-control">
