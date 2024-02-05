@@ -13,7 +13,7 @@ import com.example.QuanLySinhVien.model.SinhVien;
 import com.example.QuanLySinhVien.service.SinhVienService;
 
 @Controller
-@RequestMapping("/sinhvien")
+@RequestMapping("/Admin")
 public class SinhVienController {
 	@Autowired
 	SinhVienService sinhVienService;
@@ -46,7 +46,7 @@ public class SinhVienController {
 	@PostMapping("/saveSinhVien")
 	public String saveSinhVien(@ModelAttribute("sinhvien") SinhVien sinhvien) {
 		sinhVienService.saveSinhVien(sinhvien);
-		return "redirect:/sinhvien/dsSinhVien";
+		return "redirect:/Admin/dsSinhVien";
 
 	}
 
@@ -60,6 +60,6 @@ public class SinhVienController {
 	@GetMapping("/xoaSinhVien/{id}")
 	public String deleteSinhVien(@PathVariable(value = "id") int id) {
 		this.sinhVienService.deleteSinhVienID(id);
-		return "redirect:/sinhvien/dsSinhVien";
+		return "redirect:/Admin/dsSinhVien";
 	}
 }

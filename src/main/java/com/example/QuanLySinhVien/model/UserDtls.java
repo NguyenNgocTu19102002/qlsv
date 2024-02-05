@@ -26,7 +26,9 @@ public class UserDtls {
 	private String password;
 	@Column(name="role")
 	private String role;
-
+	
+	
+	
 	public UserDtls() {
 		
 	}

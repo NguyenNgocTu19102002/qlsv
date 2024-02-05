@@ -31,19 +31,17 @@
 			<!-- Main content -->
 			<section>
 				<div class="container">
-					<h1>Danh Sách Sinh Viên</h1>
-					<a th:href="@{/logout}">Logout</a>
-					<hr>
-					<a th:href="@{themmoiSinhVien}">Thêm mới sinh viên</a>
+					<h1>Danh Sách Nhân Viên</h1>
 					<table class="table">
 						<thead class="thead-dark">
 							<tr>
 								<th scope="col">ID</th>
-								<th scope="col">Họ Tên</th>
-								<th scope="col">Năm Sinh</th>
-								<th scope="col">Dân Tộc</th>
-								<th scope="col">Mã Lớp</th>
-								<th scope="col">Mã Sinh Viên</th>
+								<th scope="col">FullName</th>
+								<th scope="col">Email</th>
+								<th scope="col">Address</th>
+								<th scope="col">Password</th>
+								<th scope="col">Qualification</th>
+								<th scope="col">Role</th>
 								<th scope="col">
 									Action
 								</th>
@@ -51,17 +49,18 @@
 							</tr>
 						</thead>
 						<tbody>
-							<tr th:each="SinhVien:${listDSsinhvien}">
-								<td th:text="${SinhVien.id}"></td>
-								<td th:text="${SinhVien.hoTen}"></td>
-								<td th:text="${#dates.format(SinhVien.namSinh,'dd-MM-yyyy')}"></td>
-								<td th:text="${SinhVien.danToc}"></td>
-								<td th:text="${SinhVien.maLop}"></td>
-								<td th:text="${SinhVien.maSV}"></td>
+							<tr th:each="user:${listDSuser}">
+								<td th:text="${user.id}"></td>
+								<td th:text="${user.fullName}"></td>
+								<td th:text="${user.email}"></td>
+								<td th:text="${user.address}"></td>
+								<td th:text="${user.password}"></td>
+								<td th:text="${user.qualification}"></td>
+								<td th:text="${user.role}"></td>
 
 								<td>
-									<a th:href="@{/Admin/xoaSinhVien/{id}(id=${SinhVien.id})}">Delete</a>
-									<a th:href="@{/Admin/upDateSinhVien/{id}(id=${SinhVien.id})}">Update</a>
+									<a>Delete</a>
+									<a>Update</a>
 								</td>
 							</tr>
 						</tbody>

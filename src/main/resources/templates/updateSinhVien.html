@@ -1,45 +1,70 @@
-<!DOCTYPE html >
-<html lang="en" xmlns:th="http://www.thymeleaf.org"
-	th:replace="base::layout(~{::section})">
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
 
-<head>
-	<meta charset="UTF-8">
-	<title>Employee Management System</title>
-</head>
+<head th:replace="admin/fragments/head::head"></head>
 
-<body>
-	<section>
-	<div class="container">
-		<h1>Hệ Thống</h1>
-		<hr>
-		<h2>Update Sinh Viên</h2>
+<body class="hold-transition skin-blue sidebar-mini">
+	<!-- Site wrapper -->
+	<div class="wrapper">
 
-		<form action="#" th:action="@{/sinhvien/saveSinhVien}" th:object="${sinhvien}" method="post">
-		
-			<input  type="text" th:field="*{id}" style="display: none;">
-			<div class="mb-3">
-				<label>Nhập Họ Tên</label> <input type="text" th:field="*{hoTen}" class="form-control">
-			</div>
-			<div class="mb-3">
-				<label>Nhập năm sinh</label> <input type="date" th:field="*{namSinh}" class=" form-control">
-				</div>
+		<div th:replace="admin/fragments/header::header"></div>
 
-			<div class="mb-3">
-				<label>Nhập dân tộc</label> <input type="text" th:field="*{danToc}" class=" form-control">
-			</div>
-			<div class="mb-3">
-				<label>Nhập mã lớp</label> <input type="text" th:field="*{maLop}"
-										class=" form-control">
-			</div>
-			<div class="mb-3">
-				<label>Nhập mã sinh viên</label> <input type="text" th:field="*{maSV}"
-										class=" form-control">
-			</div>
-			<button class="btn btn-primary col-md-12" type="submit">Save</button>
-		</form>
-		</section>
+		<!-- =============================================== -->
 
+		<!-- Left side column. contains the sidebar -->
 
+		<div th:replace="admin/fragments/sidebar::sidebar"></div>
+		<!-- =============================================== -->
+
+		<!-- Content Wrapper. Contains page content -->
+		<div class="content-wrapper">
+			<!-- Content Header (Page header) -->
+			<section class="content-header">
+				<br>
+				<ol class="breadcrumb">
+					<li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+					<li><a href="#">Examples</a></li>
+					<li class="active">Blank page</li>
+				</ol>
+			</section>
+
+			<!-- Main content -->
+			<section>
+				<h3>Cập Nhật Thông Tin</h3>
+				<br>
+				<form action="#" th:action="@{/Admin/saveSinhVien}" th:object="${sinhvien}" method="post">
+
+					<input type="text" th:field="*{id}" style="display: none;">
+					<div class="mb-3">
+						<label>Nhập Họ Tên</label> <input type="text" th:field="*{hoTen}" class="form-control">
+					</div>
+					<div class="mb-3">
+						<label>Nhập năm sinh</label> <input type="date" th:field="*{namSinh}" class=" form-control">
+					</div>
+
+					<div class="mb-3">
+						<label>Nhập dân tộc</label> <input type="text" th:field="*{danToc}" class=" form-control">
+					</div>
+					<div class="mb-3">
+						<label>Nhập mã lớp</label> <input type="text" th:field="*{maLop}" class=" form-control">
+					</div>
+					<div class="mb-3">
+						<label>Nhập mã sinh viên</label> <input type="text" th:field="*{maSV}" class=" form-control">
+					</div>
+					<button class="btn btn-primary col-md-12" type="submit">Save</button>
+				</form>
+			</section>
+			<!-- /.content -->
+			<!-- /.content-wrapper -->
+		</div>
+			<div th:replace="admin/fragments/footer::footer"></div>
+
+		</div>
+		<!-- ./wrapper -->
+
+		<!-- jQuery 3 -->
+
+		<div th:replace="admin/fragments/script :: script"></div>
 </body>
 
 </html>
