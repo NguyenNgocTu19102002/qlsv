@@ -27,6 +27,11 @@ public class SinhVienController {
 	public String register() {
 		return "register";
 	}
+	@GetMapping("/register")
+	public String register1() {
+		return "register1";
+	}
+
 
 	@GetMapping("/dsSinhVien")
 	public String DanhSachSinhVien(Model model) {
