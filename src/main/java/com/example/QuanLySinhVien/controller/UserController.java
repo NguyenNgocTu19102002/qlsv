@@ -16,7 +16,7 @@ import com.example.QuanLySinhVien.repository.UserRepository;
 import com.example.QuanLySinhVien.service.UserService;
 
 @Controller
-@RequestMapping("/Admin")
+@RequestMapping("/admin")
 public class UserController {
 
 	@Autowired
@@ -44,30 +44,18 @@ public class UserController {
 			}
 		}
 
-		return "redirect:/Admin/register";
+		return "redirect:/admin/register";
 	}
 	
-	@ModelAttribute
-	private void userDetails(Model m, Principal p) {
-		String email = p.getName();
-		UserDtls user = userRepo.findByEmail(email);
-		m.addAttribute("user", user);
-	}
+//	@ModelAttribute
+//	private void userDetails(Model m, Principal p) {
+//		String email = p.getName();
+//		UserDtls user = userRepo.findByEmail(email);
+//		m.addAttribute("user", user);
+//	}
 	@GetMapping("/dsUser")
 	  public String DanhSachUser(Model model) {
 		  model.addAttribute("listDSuser",userService.getAllUser()); 
 		  return "dsUser";
 		  }
-//	@GetMapping("/register")
-//	public String register() {
-//		return "register";
-//	}
-//	@GetMapping("/signin")
-//	public String signin() {
-//		return "login";
-//	}																								
-//	@GetMapping("/signin")
-//	public String signIn() {
-//		return "signin";
-//	}
 }

@@ -27,7 +27,6 @@
 					<li class="active">Blank page</li>
 				</ol>
 			</section>
-
 			<!-- Main content -->
 			<section>
 
@@ -37,15 +36,12 @@
 						<div class="col-md-6 offset-md-3">
 							<div class="card">
 								<br>
-
 								<th:block th:if="${session.msg}">
 									<p class="text-center fs-4 text-success">[[${session.msg}]]</p>
 									<th:block th:text="${#session.removeAttribute('msg')}"></th:block>
 								</th:block>
-
-
 								<div class="card-body">
-									<form th:action="@{/Admin/createUser}" method="post">
+									<form th:action="@{/admin/createUser}" method="post" >
 										<div class="mb-3">
 											<label>Enter Full Name</label> <input type="text" name="fullName"
 												class="form-control">
@@ -75,9 +71,6 @@
 					</div>
 
 				</div>
-
-
-
 			</section>
 			<!-- /.content -->
 		</div>

@@ -14,6 +14,4 @@ public interface UserRepository extends JpaRepository<UserDtls, Integer> {
 
 	public void deleteById(String id);
 
-	
-
 }
