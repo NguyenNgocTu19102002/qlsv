@@ -35,6 +35,7 @@
 					<a th:href="@{/logout}">Logout</a>
 					<hr>
 					<a th:href="@{themmoiSinhVien}">Thêm mới sinh viên</a>
+					<form  th:method="post" th:object="${sinhvien}">
 					<table class="table">
 						<thead class="thead-dark">
 							<tr>
@@ -60,12 +61,13 @@
 								<td th:text="${SinhVien.maSV}"></td>
 
 								<td>
-									<a th:href="@{/Admin/xoaSinhVien/{id}(id=${SinhVien.id})}">Delete</a>
-									<a th:href="@{/Admin/upDateSinhVien/{id}(id=${SinhVien.id})}">Update</a>
+									<button type="submit">Delete</button>
+									<a type="button" th:href="@{/admin/upDateSinhVien/{id}(id=${SinhVien.id})}">Update</a>
 								</td>
 							</tr>
 						</tbody>
 					</table>
+					</form>
 				</div>
 			</section>
 			<!-- /.content -->

@@ -13,7 +13,7 @@ import com.example.QuanLySinhVien.model.SinhVien;
 import com.example.QuanLySinhVien.service.SinhVienService;
 
 @Controller
-@RequestMapping("/Admin")
+@RequestMapping("/admin/")
 public class SinhVienController {
 	@Autowired
 	SinhVienService sinhVienService;
@@ -27,12 +27,6 @@ public class SinhVienController {
 	public String register() {
 		return "register";
 	}
-	@GetMapping("/register")
-	public String register1() {
-		return "register1";
-	}
-
-
 	@GetMapping("/dsSinhVien")
 	public String DanhSachSinhVien(Model model) {
 		model.addAttribute("listDSsinhvien", sinhVienService.getAllSinhVien());
@@ -51,20 +45,21 @@ public class SinhVienController {
 	@PostMapping("/saveSinhVien")
 	public String saveSinhVien(@ModelAttribute("sinhvien") SinhVien sinhvien) {
 		sinhVienService.saveSinhVien(sinhvien);
-		return "redirect:/Admin/dsSinhVien";
+		 sinhvien = sinhVienService.getSinhVienID(sinhvien.getId());
+		return "updateSinhVien";
 
 	}
 
 	@GetMapping("/upDateSinhVien/{id}")
-	public String upDateKhachHang(@PathVariable(value = "id") int id, Model model) {
+	public String upDateKhachHang(@ModelAttribute("sinhvien") @PathVariable(value = "id") int id, Model model) {
 		SinhVien sinhvien = sinhVienService.getSinhVienID(id);
 		model.addAttribute("sinhvien", sinhvien);
 		return "updateSinhVien";
 	}
 
-	@GetMapping("/xoaSinhVien/{id}")
-	public String deleteSinhVien(@PathVariable(value = "id") int id) {
-		this.sinhVienService.deleteSinhVienID(id);
-		return "redirect:/Admin/dsSinhVien";
+	@PostMapping("/xoaSinhVien/{id}")
+	public String deleteSinhVien(@ModelAttribute("sinhvien") SinhVien sinhvien ) {
+		this.sinhVienService.deleteSinhVienID(sinhvien.getId());
+		return "dsSinhVien";
 	}
 }

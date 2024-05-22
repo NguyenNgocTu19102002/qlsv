@@ -27,12 +27,13 @@
 					<li class="active">Blank page</li>
 				</ol>
 			</section>
-
+ 	 	
 			<!-- Main content -->
 			<section>
 				<h3>Cập Nhật Thông Tin</h3>
 				<br>
-				<form action="#" th:action="@{/Admin/saveSinhVien}" th:object="${sinhvien}" method="post">
+				<div class="card-body">
+				<form th:action="@{/admin/saveSinhVien}" th:object="${sinhvien}" method="post" >
 
 					<input type="text" th:field="*{id}" style="display: none;">
 					<div class="mb-3">
@@ -53,6 +54,7 @@
 					</div>
 					<button class="btn btn-primary col-md-12" type="submit">Save</button>
 				</form>
+				</div>
 			</section>
 			<!-- /.content -->
 			<!-- /.content-wrapper -->
